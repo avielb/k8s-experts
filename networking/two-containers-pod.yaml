@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: two-containers
+spec:
+  restartPolicy: Never
+  containers:
+  - name: nginx-container
+    image: nginx
+
+  - name: debian-container
+    image: debian
+    command: ["sleep"]
+    args: ["5000"]
