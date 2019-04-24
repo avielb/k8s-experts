@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: cleanup
+  labels:
+    tier: system
+    app: cleanup
+    version: v3
+spec:
+  template:
+    metadata:
+      labels:
+        name: cleanup
+    spec:
+      containers:
+        - image: paralin/kube-cleanup:v3
+          name: cleanup
+          volumeMounts:
+            - name: docker
+              mountPath: /var/run/docker.sock
+      volumes:
+        - name: docker
+          hostPath:
+            path: /var/run/docker.sock
+
