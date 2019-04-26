@@ -2,6 +2,7 @@ helm install stable/wordpress -n myblog -f values.yaml # install a specific helm
 kubectl get all
 helm list
 # wait for few minutes for the deployment to complete
+bash get_info.sh
 echo "WordPress URL is: http://"$(minikube ip)":"$(kubectl get svc myblog-wordpress -o=jsonpath='{.spec.ports[?(@.port==80)].nodePort}')
 echo -e "Username: user\nPassword: "$(kubectl get secret --namespace default myblog-wordpress -o jsonpath="{.data.wordpress-password}" | base64 --decode) # to extract credentials
 

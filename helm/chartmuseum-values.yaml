@@ -1,0 +1,12 @@
+#helm install stable/chartmuseum -n chartmuseum --set service.type=NodePort --set service.nodePort=32688 --set env.open.DISABLE_API=false
+service:
+  type: NodePort
+  nodePort: 32688
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+
+env:
+  open:
+    DISABLE_API: false

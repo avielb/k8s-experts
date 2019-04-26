@@ -1,4 +1,3 @@
-#!/bin/bash
 base_url="http://"$(minikube ip)":"$(kubectl get svc myblog-wordpress -o=jsonpath='{.spec.ports[?(@.port==80)].nodePort}')
 echo "WordPress URL is: $base_url"
 echo "Management Console: ${base_url}/wp-login.php"
