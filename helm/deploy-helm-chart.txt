@@ -1,0 +1,5 @@
+helm install stable/wordpress -n myblog # install a specific helm chart from the stable repository
+kubectl get all --all-namespaces
+helm list
+# wait for few minutes for the deployment to complete
+echo "WordPress URL is: http://"$(minikube ip)":"$(kubectl get svc myblog-wordpress -o=jsonpath='{.spec.ports[?(@.port==80)].nodePort}')

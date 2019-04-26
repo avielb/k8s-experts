@@ -1,0 +1,6 @@
+curl -L https://git.io/get_helm.sh | bash
+helm init  # setup helm with our cluster
+helm repo update # sync all helm charts info
+helm repo list
+helm list
+
