@@ -1,0 +1,7 @@
+helm create mychart
+helm install ./mychart --dry-run  --debug --name mychart
+helm install ./mychart --name mychart
+helm package ./mychart
+helm upgrade --install mychart mychart-0.1.0.tgz --set replicaCount=3
+kubectl get pods
+
