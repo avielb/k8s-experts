@@ -1,0 +1,5 @@
+kubectl apply -f counter-pod.yaml
+kubectl logs pod/counter
+minikube ssh
+CONTAINER_ID=`sudo docker inspect \`docker ps --filter "name=k8s_count_counter_default" --format="{{ .ID }}"\` --format="{{ .ID }}"`
+cd /var/lib/docker/containers/${CONTAINER_ID}

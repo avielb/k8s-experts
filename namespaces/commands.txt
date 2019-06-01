@@ -1,0 +1,12 @@
+kubectl create namespace development
+kubectl create namespace production
+kubectl config current-context
+kubectl config set-context dev --namespace=development --cluster=minikube --user=minikube
+kubectl config set-context prod --namespace=production --cluster=minikube --user=minikube
+kubectl config view
+kubectl config use-context dev
+kubectl run nginx --image=nginx:1.15.12-alpine --generator=run-pod/v1
+kubectl get all
+kubectl config use-context prod
+kubectl get all
+
