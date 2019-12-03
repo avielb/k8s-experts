@@ -1,0 +1,8 @@
+1. download helm binary from: https://github.com/helm/helm/releases
+2. copy helm[.exe] to /usr/local/bin or c:/Windows/System32
+3. helm repo add stable https://kubernetes-charts.storage.googleapis.com
+4. helm repo update
+5. helm install redis-prod stable/redis --set password="secretpass"
+6. kubectl get all
+7. helm upgrade redis-prod stable/redis --set cluster.slaveCount=5 --set password="secretpass"
+8. helm delete redis-prod
