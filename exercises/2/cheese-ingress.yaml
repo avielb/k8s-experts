@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cheese-ingress
+spec:
+  tls:
+  - hosts:
+    - ams.cheese.com
+    secretName: cheese-secret
+  rules:
+  - host: ams.cheese.com
+    http:
+      paths:
+      - path: /gauda
+        backend:
+          serviceName: gauda-svc
+          servicePort: 80
+      - path: /cheddar
+        backend:
+          serviceName: cheddar-svc
+          servicePort: 80
