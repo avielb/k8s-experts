@@ -1,0 +1,35 @@
+Creating the machine:
+1. vagrant init ubuntu/bionic64
+2. vagrant ssh
+
+When connected to the server:
+1. sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+2. curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+3. cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+4. sudo apt-get update
+5. sudo apt-get install -y kubelet kubeadm kubectl
+6. sudo apt-mark hold kubelet kubeadm kubectl
+7. docker
+8. systemctl daemon-reload
+9. sudo systemctl daemon-reload
+10. systemctl restart kubelet
+11. sudo systemctl restart kubelet
+12. kubeadm init
+13. sudo su -
+14. sudo apt-get install docker.io
+15. sudo kubeadm init
+16. mkdir -p $HOME/.kube
+17. sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+18. sudo chown $(id -u):$(id -g) $HOME/.kube/config
+19. kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+20. kubectl get pods
+21. kubectl get pods --all-namespaces
+22. kubectl create deployment nginx --image=nginx
+23. kubectl get pods
+24. kubectl describe pod nginx-86c57db685-zslbt
+25. kubectl get nodes
+26. kubectl describe node ubuntu-bionic
+27. kubectl taint nodes ubuntu-bionic key:NoSchedule- # allow scheduling pods on master node
+28. kubectl get pods
