@@ -1,0 +1,10 @@
+kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
+kubectl get deployments
+kubectl describe deployment hello-node
+kubectl get pods
+kubectl scale deployment/hello-node --replicas=3
+kubectl get all
+kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+kubectl get services
+minikube addons enable heapster
+
