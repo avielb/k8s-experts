@@ -4,7 +4,7 @@ kubectl create -f https://raw.githubusercontent.com/cilium/cilium/1.6.5/install/
 kubectl -n kube-system get pods --watch
 kubectl create ns secondary
 kubectl run web --namespace secondary --image=nginx --labels=app=web --expose --port 80
-kubectl run test-$RANDOM --namespace=default --rm -i -t --image=alpine -- sh
+kubectl run test1 --namespace=default --rm -i -t --image=alpine -- sh
 # wget -qO- --timeout=2 http://web.secondary
-kubectl run test-$RANDOM --namespace=secondary --rm -i -t --image=alpine -- sh
+kubectl run test2 --namespace=secondary --rm -i -t --image=alpine -- sh
 # wget -qO- --timeout=2 http://web.secondary
