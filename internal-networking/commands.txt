@@ -4,3 +4,10 @@ apt update && apt install -y net-tools procps curl dnsutils # install networking
 ps -ef # list all processes
 curl localhost
 
+
+kubectl apply -f pod-with-service.yaml
+kubectl exec -it debian bash
+apt update && apt install -y net-tools procps curl dnsutils
+dig  fe-gate
+curl fe-gate
+
