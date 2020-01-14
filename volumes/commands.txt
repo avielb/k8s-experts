@@ -1,0 +1,6 @@
+kubectl apply -f pod-empty-dir.yaml
+kubectl create configmap game-config --from-file=configure-pod-container/configmap/
+kubectl describe configmap game-config
+kubectl exec -it pod-env-var cat /app/game.properties
+kubectl exec -it pod-env-var env
+
