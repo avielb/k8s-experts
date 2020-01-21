@@ -1,0 +1,7 @@
+cd k8s-experts/advanced-orchestration
+cat statefulset.yaml
+kubectl apply -f statefulset.yaml
+kubectl get all
+kubectl scale statefulset web --replicas 10
+kubectl get all
+
