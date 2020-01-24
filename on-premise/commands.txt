@@ -1,0 +1,18 @@
+# setting up machines
+vagrant up
+ssh-keygen # in case you don't have
+ssh-copy-id vagrant@localhost -p 2222 # password is: vagrant
+ssh-copy-id vagrant@localhost -p 2200 # password is: vagrant
+ssh-copy-id vagrant@localhost -p 2201 # password is: vagrant
+
+# setting up kubespray
+git clone https://github.com/kubernetes-sigs/kubespray.git
+cd kubespray
+VENVDIR=venv
+virtualenv $VENVDIR
+source $VENVDIR/bin/activate
+pip install -r requirements.txt
+cp inventory/sample inventory/test_env
+cd ..
+cp k8s-experts/on-premise/test_env/inventory.ini kubespray/inventory/test_env
+venv/bin/ansible-playbook -b -u vagrant -i inventory/test_env/inventory.ini cluster.yml

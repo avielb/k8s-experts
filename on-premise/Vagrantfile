@@ -1,0 +1,26 @@
+$instance_name_prefix = "kub"
+$vm_cpus = 1
+$num_instances = 3
+$subnet = "10.0.20"
+$vm_memory = 2048
+$vm_cpus = 1
+$vm_gui = false
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "bento/centos-7.6"
+    (1..$num_instances).each do |i|
+        config.vm.define vm_name = "%s-%01d" % [$instance_name_prefix, i] do |node|
+            node.vm.hostname = vm_name
+            node.vm.provider :virtualbox do |vb|
+              vb.memory = $vm_memory
+              vb.cpus = $vm_cpus
+              vb.gui = $vm_gui
+              vb.linked_clone = true
+              vb.customize ["modifyvm", :id, "--vram", "8"] # ubuntu defaults to 256 MB which is a waste of precious RAM
+            end
+            ip = "#{$subnet}.#{i+100}"
+            node.vm.network :private_network, ip: ip
+            node.vm.provision "shell", inline: "swapoff -a"
+        end
+    end
+end
