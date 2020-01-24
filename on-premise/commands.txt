@@ -12,7 +12,8 @@ VENVDIR=venv
 virtualenv $VENVDIR
 source $VENVDIR/bin/activate
 pip install -r requirements.txt
-cp inventory/sample inventory/test_env
+cp -r inventory/sample inventory/test_env
 cd ..
-cp k8s-experts/on-premise/test_env/inventory.ini kubespray/inventory/test_env
+cp k8s-experts/on-premise/test_env/inventory.ini kubespray/inventory/test_env/inventory.ini
+cd kubespray
 venv/bin/ansible-playbook -b -u vagrant -i inventory/test_env/inventory.ini cluster.yml
