@@ -1,0 +1,31 @@
+$instance_name_prefix = "kub"
+$vm_cpus = 3
+$num_instances = 1
+$subnet = "10.0.20"
+$vm_memory = 8192
+$vm_gui = false
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "bento/centos-7.6"
+    (1..$num_instances).each do |i|
+        config.vm.define vm_name = "%s-%01d" % [$instance_name_prefix, i] do |node|
+            node.vm.hostname = vm_name
+            node.vm.provider :virtualbox do |vb|
+              vb.memory = $vm_memory
+              vb.cpus = $vm_cpus
+              vb.gui = $vm_gui
+              vb.linked_clone = true
+              vb.customize ["modifyvm", :id, "--vram", "8"]
+            end
+            ip = "#{$subnet}.#{i+100}"
+            node.vm.network :private_network, ip: ip
+            node.vm.provision "shell", inline: <<-SHELL
+                yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+                yum install docker-ce -y
+                systemctl start docker
+                systemctl enable docker
+                docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
+              SHELL
+        end
+    end
+end
