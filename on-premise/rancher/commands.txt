@@ -2,7 +2,7 @@
 # We need resources because that server will also be our kubernetes cluster
 vagrant up
 
-1. Browse to: https://10.0.20.101
+1. Wait for rancher to start (5 minutes) Browse to: https://10.0.20.101
 2. Login with: admin/admin
 3. Go to Clusters -> add cluster, Choose: "From existing nodes (Custom)", name it: "sandbox" and hit Next
 4. Scroll down, under "Customize Node Run Command" select etcd, controlplane and worker together
