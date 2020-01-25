@@ -6,6 +6,7 @@ $vm_memory = 2048
 $vm_gui = false
 $provision_rancher_script = "https://raw.githubusercontent.com/avielb/k8s-experts/master/on-premise/rancher/provision_rancher.sh"
 $provision_docker_script = "https://raw.githubusercontent.com/avielb/k8s-experts/master/on-premise/rancher/provision_docker.sh"
+
 Vagrant.configure("2") do |config|
     config.vm.box = "bento/centos-7.6"
     (1..$num_instances).each do |i|
@@ -21,7 +22,9 @@ Vagrant.configure("2") do |config|
             ip = "#{$subnet}.#{i+100}"
             node.vm.network :private_network, ip: ip
             if i == 1
-                node.vm.provision "shell", path: $provision_script
+                node.vm.provision "shell", path: $provision_rancher_script
+            else
+                node.vm.provision "shell", path: $provision_docker_script
             end
         end
     end
