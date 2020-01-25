@@ -1,0 +1,11 @@
+# start rancher server, requires 8GB of RAM and 3 CPU cores.
+vagrant up
+
+1. Browse to: https://10.0.20.101
+2. Login with: admin/admin
+3. Go to Clusters -> add cluster, Choose: "From existing nodes (Custom)", name it: 'sandbox' and hit Next
+4. Scroll down, under << Customize Node Run Command >> select etcd, controlplane and worker together
+5. Copy the commands generated and do the following from this directory (k8s-experts/on-premise/rancher):
+    1. vagrant ssh kub-1
+    2. Paste the command : sudo docker run ....
+6. Wait for everything to finish (takes about 5-10 minutes)

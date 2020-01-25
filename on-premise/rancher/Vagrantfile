@@ -1,8 +1,8 @@
 $instance_name_prefix = "kub"
 $vm_cpus = 3
-$num_instances = 3
+$num_instances = 1
 $subnet = "10.0.20"
-$vm_memory = 2048
+$vm_memory = 8192
 $vm_gui = false
 
 Vagrant.configure("2") do |config|
@@ -19,6 +19,13 @@ Vagrant.configure("2") do |config|
             end
             ip = "#{$subnet}.#{i+100}"
             node.vm.network :private_network, ip: ip
+            node.vm.provision "shell", inline: <<-SHELL
+                yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+                yum install docker-ce -y
+                systemctl start docker
+                systemctl enable docker
+                docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
+              SHELL
         end
     end
 end

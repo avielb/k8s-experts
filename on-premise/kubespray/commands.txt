@@ -1,6 +1,6 @@
 # setting up machines
-vagrant up
-ssh-keygen # in case you don't have
+vagrant up # will spin up 3 centos 7 machines
+ssh-keygen # create ssh keys in case you don't have, hit enter, enter and enter
 ssh-copy-id vagrant@localhost -p 2222 # password is: vagrant
 ssh-copy-id vagrant@localhost -p 2200 # password is: vagrant
 ssh-copy-id vagrant@localhost -p 2201 # password is: vagrant
@@ -8,12 +8,13 @@ ssh-copy-id vagrant@localhost -p 2201 # password is: vagrant
 # setting up kubespray
 git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
+
+# create python virtual environment of kubespray dependencies
 VENVDIR=venv
 virtualenv $VENVDIR
 source $VENVDIR/bin/activate
 pip install -r requirements.txt
 cp -r inventory/sample inventory/test_env
-cd ..
-cp k8s-experts/on-premise/test_env/inventory.ini kubespray/inventory/test_env/inventory.ini
+cp ../test_env/inventory.ini inventory/test_env/inventory.ini
 cd kubespray
 venv/bin/ansible-playbook -b -u vagrant -i inventory/test_env/inventory.ini cluster.yml
