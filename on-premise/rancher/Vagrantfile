@@ -2,7 +2,7 @@ $instance_name_prefix = "kub"
 $vm_cpus = 3
 $num_instances = 1
 $subnet = "10.0.20"
-$vm_memory = 8192
+$vm_memory = 4096
 $vm_gui = false
 
 Vagrant.configure("2") do |config|

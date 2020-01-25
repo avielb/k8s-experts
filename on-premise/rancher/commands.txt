@@ -1,4 +1,4 @@
-# start rancher server, requires 8GB of RAM and 3 CPU cores.
+# start rancher server, requires 4GB of RAM and 3 CPU cores.
 # We need resources because that server will also be our kubernetes cluster
 vagrant up
 
