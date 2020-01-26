@@ -2,7 +2,8 @@ $instance_name_prefix = "kub"
 $vm_cpus = 3
 $num_instances = 3
 $subnet = "10.0.20"
-$vm_memory = 2048
+$rancher_vm_memory = 2048
+$node_vm_memory = 3072
 $vm_gui = false
 $provision_rancher_script = "https://raw.githubusercontent.com/avielb/k8s-experts/master/on-premise/rancher/provision_rancher.sh"
 $provision_docker_script = "https://raw.githubusercontent.com/avielb/k8s-experts/master/on-premise/rancher/provision_docker.sh"
@@ -13,7 +14,11 @@ Vagrant.configure("2") do |config|
         config.vm.define vm_name = "%s-%01d" % [$instance_name_prefix, i] do |node|
             node.vm.hostname = vm_name
             node.vm.provider :virtualbox do |vb|
-              vb.memory = $vm_memory
+              if i == 1
+                vb.memory = $rancher_vm_memory
+              else
+                vb.memory = $node_vm_memory
+              end
               vb.cpus = $vm_cpus
               vb.gui = $vm_gui
               vb.linked_clone = true
