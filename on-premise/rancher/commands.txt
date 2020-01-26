@@ -2,7 +2,7 @@
 vagrant up
 
 1. Wait for rancher to start (5 minutes) Browse to: https://10.0.20.101
-2. Login with: admin/admin
+2. Login with: admin/admin, set the server address to be https://10.0.20.101 and click ok.
 3. Go to Clusters -> add cluster, Choose: "From existing nodes (Custom)", name it: "sandbox" and hit Next
 4. Scroll down, under "Customize Node Run Command" select etcd, controlplane together.
    Click "Show advanced settings", set the private and public address to: 10.0.20.102
