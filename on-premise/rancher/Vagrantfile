@@ -1,9 +1,9 @@
 $instance_name_prefix = "kub"
 $vm_cpus = 3
-$num_instances = 3
+$num_instances = 2
 $subnet = "10.0.20"
-$rancher_vm_memory = 2048
-$node_vm_memory = 3072
+$rancher_vm_memory = 1024
+$node_vm_memory = 4608
 $vm_gui = false
 $provision_rancher_script = "https://raw.githubusercontent.com/avielb/k8s-experts/master/on-premise/rancher/provision_rancher.sh"
 $provision_docker_script = "https://raw.githubusercontent.com/avielb/k8s-experts/master/on-premise/rancher/provision_docker.sh"

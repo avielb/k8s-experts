@@ -11,10 +11,12 @@ vagrant up
     1. vagrant ssh kub-2
     2. Paste the command : sudo docker run ...
 6. Wait for everything to finish (takes about 5-10 minutes)
-7. After cluster is configured successfully, click on "Cluster" -> Edit (3 dots icon)
+7. Go to the rancher management console, choose "sandbox" cluster. Navigate to Tools -> Monitoring
+
+# Adding another worker to the cluster
+1. After cluster is configured successfully, click on "Cluster" -> Edit (3 dots icon)
    scroll down , under "Customize Node Run Command" select worker only.
    click "Show advanced settings", set the private and public address to: 10.0.20.103
-8. Copy the command generated and do the following from this directory (k8s-experts/on-premise/rancher):
+2. Copy the command generated and do the following from this directory (k8s-experts/on-premise/rancher):
     1. vagrant ssh kub-3
     2. Paste the command : sudo docker run ...
-9. Go to the rancher management console, choose "sandbox" cluster. Navigate to Tools -> Monitoring
