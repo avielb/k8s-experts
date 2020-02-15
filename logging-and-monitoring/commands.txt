@@ -1,4 +1,9 @@
+EFK Stack
+---
 kubectl apply -f fluentd/
 kubectl create ns logging
 kubectl apply -f logging
 
+Weave-Scope
+---
+helm install weave-scope stable/weave-scope
