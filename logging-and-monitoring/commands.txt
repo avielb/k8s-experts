@@ -1,16 +1,4 @@
-# Logging and Monitoring
-### Container Logging
-kubectl apply -f counter-pod.yaml
-kubectl logs pod/counter
-minikube ssh
-CONTAINER_ID=`sudo docker inspect \`docker ps --filter "name=k8s_count_counter_default" --format="{{ .ID }}"\` --format="{{ .ID }}"`
-cd /var/lib/docker/containers/${CONTAINER_ID}
+kubectl apply -f fluentd/
+kubectl create ns logging
+kubectl apply -f logging
 
-### Container Monitoring
-deploy Prometheus chart:
-helm install stable/prometheus-operator --name prometheus-operator --namespace monitoring
-
-port forward Prometheus to our localhost:9090
-kubectl port-forward -n monitoring prometheus-prometheus-operator-prometheus-0 9090 --namespace monitoring
-
-Visit http://localhost:9090/targets
