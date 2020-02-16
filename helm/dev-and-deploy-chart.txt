@@ -1,8 +1,0 @@
-helm create mychart
-helm install test1 ./mychart --dry-run  --debug
-helm install test2 ./mychart
-helm package ./mychart
-helm upgrade test2 mychart-0.1.0.tgz --set replicaCount=3
-kubectl get pods
-helm delete test2
-
