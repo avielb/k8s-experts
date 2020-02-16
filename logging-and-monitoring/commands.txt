@@ -2,7 +2,7 @@ EFK Stack
 ---
 kubectl apply -f fluentd/
 kubectl create ns logging
-kubectl apply -f logging
+kubectl -n logging apply -f logging
 
 Weave-Scope
 ---
