@@ -10,3 +10,6 @@ helm install weave-scope stable/weave-scope
 kubectl port-forward svc/weave-scope-weave-scope 8081:80
 kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
 
+Jenkins Installation
+---
+helm install jenkins stable/jenkins --set master.serviceType=NodePort
