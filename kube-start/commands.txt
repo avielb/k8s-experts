@@ -1,7 +1,7 @@
 kubectl run nginx --image=nginx
 kubectl set image deployment/nginx nginx=nginx:1.9.1
 
-kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
+kubectl create deployment hello-node --image=nginx:1.15.12-alpine
 kubectl get deployments
 kubectl describe deployment hello-node
 kubectl get pods
