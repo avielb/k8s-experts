@@ -5,7 +5,7 @@ kubectl create deployment hello-node --image=nginx:1.15.12-alpine
 kubectl get deployments
 kubectl describe deployment hello-node
 kubectl get pods
-kubectl set image deployment/hello-node nginx=nginx:1.16
+kubectl set image deployment/hello-node --image=nginx:1.16
 kubectl set image deployment/hello-node 
 kubectl get all
 kubectl expose deployment hello-node --type=LoadBalancer --port=8080
