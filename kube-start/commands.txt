@@ -8,7 +8,7 @@ kubectl get pods
 kubectl set image deployment/hello-node nginx=nginx:1.16
 kubectl set image deployment/hello-node 
 kubectl get all
-kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+kubectl expose deployment hello-node --type=ClusterIP --port=8080
 kubectl get services
 minikube addons enable heapster
 
