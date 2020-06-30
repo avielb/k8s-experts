@@ -1,5 +1,6 @@
 cd k8s-experts/advanced-orchestration
 cat statefulset.yaml
+kubectl scale sts web --replicas=20
 kubectl apply -f statefulset.yaml
 kubectl get all
 kubectl scale statefulset web --replicas 10
