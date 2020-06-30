@@ -3,3 +3,8 @@ Download the script with the command git clone https://github.com/docker/docker-
 Change into the newly created directory with the command cd docker-bench-security
 Run the script with the command sudo sh docker-bench-security.sh
 
+
+git clone https://github.com/aquasecurity/kube-bench.git
+cd kube-bench
+kubectl apply -f job.yaml
+
