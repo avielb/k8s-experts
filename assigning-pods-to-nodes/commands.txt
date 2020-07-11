@@ -1,0 +1,16 @@
+1. kubectl label nodes minikube my.key=my.value
+   kubectl label nodes minikube another-node-label-key=another-node-label-value
+2. kubectl get nodes -l my.key=my.value
+3. kubectl apply -f pod-node-selector.yaml
+4. kubectl apply -f pod-with-node-affinity.yaml
+5. minikube start --nodes 2
+6. kubectl apply -f pod-with-pod-affinity.yaml
+7. kubectl get pods -o wide
+8. kubectl taint nodes node1 env=test:NoSchedule
+9. kubectl apply -f pod-with-resources.yaml
+10. kubectl get pod frontend -o yaml
+11. kubectl create ns default-mem-example
+12. kubectl apply -f memory-defaults.yaml -n default-mem-example
+13. kubectl apply -f pod-without-resources.yaml -n default-mem-example
+14. kubectl get pod default-mem-demo -o yaml
+15. kubectl apply -f pod-limits-only.yaml -n default-mem-example
