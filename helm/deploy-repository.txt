@@ -3,3 +3,4 @@ helm plugin install https://github.com/chartmuseum/helm-push
 helm repo add chartmuseum http://$(minikube ip):32688
 helm repo update
 helm push mychart-0.1.0.tgz chartmuseum
+helm install test --debug --dry-run ./
