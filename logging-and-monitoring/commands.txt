@@ -4,6 +4,9 @@ kubectl apply -f fluentd/
 kubectl create ns logging
 kubectl -n logging apply -f logging
 
+# After few minutes
+kubectl port-forward svc/kibana -n logging 5601:5601
+
 Weave-Scope
 ---
 helm install weave-scope stable/weave-scope
