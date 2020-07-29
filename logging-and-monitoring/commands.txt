@@ -6,6 +6,11 @@ kubectl -n logging apply -f logging
 
 # After few minutes
 kubectl port-forward svc/kibana -n logging 5601:5601
+# Sign in and configure index pattern for logstash
+http://127.0.0.1:5601/app/kibana#/management/elasticsearch/index_management/indices?_g=()
+
+# Deploy test workload
+kubectl create deployment hello-node --image=nginx:1.15.12-alpine
 
 Weave-Scope
 ---
