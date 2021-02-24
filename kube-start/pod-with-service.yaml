@@ -20,8 +20,19 @@ metadata:
 spec:
   #hostname: frontend001
   containers:
-  - image: nginx
+  - image: exoplatform/mysqltuner
     name: nginx-container
+    command:
+      - perl
+      - /mysqltuner.pl
+      - --host
+      - edge-mariadb
+      - --user
+      - root
+      - --pass
+      - 22jIBq6szjwC7M6iMogx
+      - --forcemem
+      - "1000"
 ---
 apiVersion: v1
 kind: Pod
