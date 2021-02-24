@@ -1,3 +1,4 @@
+https://kubernetes.github.io/ingress-nginx/deploy/#docker-for-mac 
 minikube addons enable ingress
 cd ingress-contoller
 kubectl apply -f ./
