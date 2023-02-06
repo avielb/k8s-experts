@@ -2,8 +2,9 @@ https://kubernetes.github.io/ingress-nginx/deploy/#docker-for-mac
 minikube addons enable ingress
 cd ingress-contoller
 kubectl apply -f ./
-add to /etc/hosts: <minikube ip> cafe.example.com
+add to /etc/hosts: 127.0.0.1 cafe.example.com
 for windows users: https://gist.github.com/zenorocha/18b10a14b2deb214dc4ce43a2d2e2992
+run: minikube tunnel
 In chrome go to:  https://cafe.example.com/tea
 In chrome go to:  https://cafe.example.com/coffee
 
