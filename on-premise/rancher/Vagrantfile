@@ -1,7 +1,7 @@
 $instance_name_prefix = "kub"
 $vm_cpus = 3
 $num_instances = 2
-$subnet = "10.0.20"
+$subnet = "192.168.56"
 $rancher_vm_memory = 1024
 $node_vm_memory = 4608
 $vm_gui = false
