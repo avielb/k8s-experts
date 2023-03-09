@@ -14,9 +14,7 @@ kubectl create deployment hello-node --image=nginx:1.15.12-alpine
 
 Weave-Scope
 ---
-helm install weave-scope ./weave-scope
-kubectl port-forward svc/weave-scope-weave-scope 8081:80
-kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
+https://www.weave.works/docs/scope/latest/installing/#k8s
 
 Jenkins Installation
 ---
