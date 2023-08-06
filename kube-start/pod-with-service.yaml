@@ -10,6 +10,9 @@ spec:
   - name: foo # Actually, no port is needed.
     port: 80
     targetPort: 80
+  - name: ddd # Actually, no port is needed.
+    port: 199
+    targetPort: 80
 ---
 apiVersion: v1
 kind: Pod
