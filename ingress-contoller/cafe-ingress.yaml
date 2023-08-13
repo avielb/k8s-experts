@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-apiVersion: networking.k8s.io/v1beta2
-=======
 apiVersion: networking.k8s.io/v1
->>>>>>> 5afa5157170f4f258f9853075af2224e17e32dbe
 kind: Ingress
 metadata:
   name: cafe-ingress
