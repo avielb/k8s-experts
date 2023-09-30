@@ -4,7 +4,7 @@ metadata:
   name: hello
 spec:
   schedule: "*/1 * * * *"
-  successfulJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 10
   failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
@@ -16,5 +16,5 @@ spec:
             args:
             - /bin/sh
             - -c
-            - date; echo Hello from the Kubernetes cluster
+            - date; echo aviel Hello from the Kubernetes cluster
           restartPolicy: OnFailure
